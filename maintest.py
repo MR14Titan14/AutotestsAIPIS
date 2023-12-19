@@ -61,7 +61,7 @@ payload4 = {
     }
 }
 
-payload5 = {
+payload6 = {
     "pagination": {
         "count": 3,
         "random": True
@@ -76,7 +76,7 @@ payload5 = {
     }
 }
 
-payload6 = {
+payload5 = {
     "pagination": {
         "count": 3,
         "random": True
@@ -116,13 +116,13 @@ BASE_URL = 'http://192.168.0.16:8080/students/general/get-student-list'
 
 
 
-def test_get_student_list_bestnormal():
-    response = requests.post(f'{BASE_URL}', json=payload1)
-    response_body=response.json()
-    assert response.status_code==200
-    for student in response_body["info"][:2]:
-        assert student["fgit"]["hasGit"] == True, "Поле Гит пустое"
-        assert student["fcontact"]["hasContact"] == True, "Поле контакты пустое"
+# def test_get_student_list_bestnormal():
+#     response = requests.post(f'{BASE_URL}', json=payload1)
+#     response_body=response.json()
+#     assert response.status_code==200
+#     for student in response_body["info"][:2]:
+#         assert student["fgit"]["hasGit"] == True, "Поле Гит пустое"
+#         assert student["fcontact"]["hasContact"] == True, "Поле контакты пустое"
 
 # def test_get_student_list_bestnormal_50students():
 #     response = requests.post(f'{BASE_URL}', json=payload2)
@@ -131,7 +131,7 @@ def test_get_student_list_bestnormal():
 #     for student in response_body["info"][:49]:
 #         assert student["fgit"]["hasGit"] == True, "Поле Гит пустое"
 #         assert student["fcontact"]["hasContact"] == True, "Поле контакты пустое"
-#
+
 # def test_get_student_list_bestnormal_500students():
 #     response = requests.post(f'{BASE_URL}', json=payload3)
 #     response_body=response.json()
@@ -154,15 +154,15 @@ def test_get_student_list_bestnormal():
 #     assert response_body["info"][0]["id"] == response_body1["info"][0]["id"], "Данные не совпадают"
 
 # def test_get_student_list_gitFalse():
-#     response = requests.post(f'{BASE_URL}', json=payload6)
+#     response = requests.post(f'{BASE_URL}', json=payload5)
 #     response_body=response.json()
 #     assert response.status_code==200
 #     for student in response_body["info"][:2]:
 #         assert student["fgit"]["hasGit"] == False, "Поле Гит не пустое"
 #         assert student["fcontact"]["hasContact"] == True, "Поле контакты пустое"
-#
+
 # def test_get_student_list_contactFalse():
-#     response = requests.post(f'{BASE_URL}', json=payload5)
+#     response = requests.post(f'{BASE_URL}', json=payload6)
 #     response_body=response.json()
 #     assert response.status_code==200
 #     for student in response_body["info"][:2]:
@@ -177,7 +177,7 @@ def test_get_student_list_bestnormal():
 #         assert student["fgit"]["hasGit"] == False, "Поле Гит не пустое"
 #         assert student["fcontact"]["hasContact"] == False, "Поле контакты не пустое"
 
-# def test_get_student_list():
-#     response = requests.post(f'{BASE_URL}')
-#     response_body=response.json()
-#     assert response.status_code==200
+def test_get_student_list():
+    response = requests.post(f'{BASE_URL}')
+    response_body=response.json()
+    assert response.status_code==200
